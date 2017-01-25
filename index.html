@@ -7,10 +7,10 @@
 <h1>To-Do List App</h1>
 <form>
 	<input type="text" ng-model="list">
-	<button ng-submit="add()">Add to List</button>
+	<button ng-click="add = list">Add to List</button>
 </form>
 <section>
-	<ul ng-repeat="todo">{{ todo.list }}</ul>
+	<ul >{{ add }}</ul>
 </section>
 <script type="text/javascript" src="js/angular.min.js"></script>
 </body>
