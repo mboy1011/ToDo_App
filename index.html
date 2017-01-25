@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="apptodo">
 <head>
 	<title>AngularJS ToDo-App</title>
 </head>
 <body>
-<h1>To-Do List App</h1>
-<form>
-	<input type="text" ng-model="list">
-	<button ng-click="add = list">Add to List</button>
-</form>
-<section>
-	<ul >{{ add }}</ul>
-</section>
+<h1>AngularJS ToDo App</h1>
+<div ng-controller="TodoCtrl as control">
+	<p>ToDo Total: <span> {{ getTotalTodos() }} </span></p>
+	<form >
+		<input type="text" ng-model="control.formTodoText" ng-model-instant>
+		<button ng-click="control.addTodo()">Add to List</button>
+	</form>
+	<button ng-click="control.clearCompleted()">Delete Selected</button>
+	<ul>
+		<li ng-repeat="todo in control.todos">
+			<input type="checkbox" ng-model="todo.done">
+			<span>{{ todo.text }}</span>
+		</li>
+	</ul>
+</div>
 <script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
-</html>
+</html> 
